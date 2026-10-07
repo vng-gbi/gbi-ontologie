@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="De GBI-gemeenten ontwikkelen standaarden voor betere dienstverlening en gegevensuitwisseling in het inkomensdomein.">
+  <meta name="theme-color" content="#62BA46">
+  <title>GBI | Gemeentelijke Basisprocessen Inkomen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #19332f;
+      --muted: #526661;
+      --paper: #f5f7f3;
+      --white: #fff;
+      --green: #62BA46;
+      --green-light: #e8f4e4;
+      --lime: #d9ec8b;
+      --coral: #bd5947;
+      --line: #d9e1dc;
+      --content: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+    .wrap { width: min(var(--content), calc(100% - 48px)); margin-inline: auto; }
+
+    .topbar { background: var(--white); border-bottom: 1px solid var(--line); }
+    .topbar-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      color: var(--green);
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .brand img { display: block; width: 68px; height: auto; }
+    .nav { display: flex; flex-wrap: wrap; gap: 25px; }
+    .nav a { color: var(--muted); font-size: 14px; font-weight: 600; text-decoration: none; }
+    .nav a:hover { color: var(--coral); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--green);
+      background-image: linear-gradient(rgb(39 112 35 / 72%), rgb(39 112 35 / 72%)), url("images/banner.jpg");
+      background-position: center;
+      background-size: cover;
+      color: var(--white);
+    }
+    .hero::after {
+      content: none;
+    }
+    .hero-inner { position: relative; z-index: 1; padding-block: 92px 86px; }
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--lime);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: 0; }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(40px, 6vw, 70px);
+      font-weight: 700;
+      line-height: 1.08;
+    }
+    .hero-copy { max-width: 650px; margin: 24px 0 0; color: #e1ebe5; font-size: 18px; }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+      color: var(--lime);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .hero-link span { font-size: 20px; transition: transform .2s ease; }
+    .hero-link:hover span { transform: translateY(3px); }
+
+    .standards { position: relative; z-index: 2; margin-top: -1px; background: var(--white); }
+    .standard-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-bottom: 1px solid var(--line);
+    }
+    .standard {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      padding: 29px 34px 31px 0;
+    }
+    .standard + .standard { border-left: 1px solid var(--line); padding-left: 34px; }
+    .standard-index {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green);
+      font-family: "Manrope", sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .standard h2 { margin: 0 0 5px; font-size: 18px; }
+    .standard p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    main { padding-block: 86px 98px; }
+    .section { scroll-margin-top: 30px; }
+    .section + .section { margin-top: 94px; }
+    .section-heading { max-width: 720px; margin-bottom: 32px; }
+    .section-kicker { margin: 0 0 9px; color: var(--coral); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(30px, 4vw, 42px); line-height: 1.2; }
+    .section-heading > p:last-child { margin: 15px 0 0; color: var(--muted); }
+    .prose { max-width: 790px; color: var(--muted); }
+    .prose p { margin: 0 0 18px; }
+    .prose strong { color: var(--ink); }
+
+    .note {
+      display: grid;
+      grid-template-columns: 5px 1fr;
+      gap: 18px;
+      max-width: 790px;
+      margin-top: 28px;
+      padding: 20px 24px 20px 0;
+      background: var(--white);
+    }
+    .note::before { background: var(--coral); content: ""; }
+    .note p { margin: 0; color: var(--muted); }
+    .note strong { color: var(--ink); }
+
+    .process-band { padding-block: 30px; background: var(--green-light); }
+    .process-band h3 { margin: 0 0 16px; font-size: 15px; }
+    .process-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .process-list li { padding: 7px 12px; border: 1px solid #bed2c6; border-radius: 3px; color: var(--green); font-size: 13px; font-weight: 600; }
+
+    .experience {
+      display: grid;
+      grid-template-columns: minmax(180px, .7fr) 2fr;
+      gap: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+    .experience h3 { margin: 0; font-size: 18px; }
+    .experience p { margin: 0; color: var(--muted); }
+
+    .spec-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
+    .spec {
+      min-height: 230px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--green);
+      background: var(--white);
+    }
+    .spec:nth-child(2) { border-top-color: var(--coral); }
+    .spec-label { margin: 0 0 19px; color: var(--coral); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .spec h3 { margin: 0 0 10px; font-size: 20px; }
+    .spec p:last-child { margin: 0; color: var(--muted); font-size: 14px; }
+    .closing { margin-top: 32px; color: var(--muted); }
+
+    footer { padding-block: 27px; border-top: 1px solid var(--line); background: var(--white); }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+    footer p { margin: 0; color: var(--muted); font-size: 13px; }
+    footer a { color: var(--green); font-size: 13px; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 36px, var(--content)); }
+      .topbar-inner { min-height: 68px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 8px; padding-block: 12px; }
+      .brand img { width: 56px; }
+      .nav { gap: 18px; }
+      .nav a { font-size: 12px; }
+      .hero-inner { padding-block: 67px 63px; }
+      .hero-copy { font-size: 16px; }
+      .standard-grid, .spec-grid { grid-template-columns: 1fr; }
+      .standard { padding: 22px 0; }
+      .standard + .standard { border-top: 1px solid var(--line); border-left: 0; padding: 22px 0; }
+      main { padding-block: 65px 72px; }
+      .section + .section { margin-top: 68px; }
+      .experience { grid-template-columns: 1fr; gap: 8px; }
+      .spec { min-height: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="GBI, naar de bovenkant van de pagina">
+        <img src="images/logo.jpg" alt="GBI">
+      </a>
+      <nav class="nav" aria-label="Hoofdnavigatie">
+        <a href="#nieuws">Nieuws</a>
+        <a href="#ontologie">Ontologie</a>
+        <a href="#koppelvlakken">Koppelvlakken</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Gemeentelijke Basisprocessen Inkomen</p>
+      <h1>Samen bouwen aan betere dienstverlening.</h1>
+      <p class="hero-copy">Gemeenten ontwikkelen standaarden voor de basisprocessen in het inkomensdomein. Een gedeelde basis maakt informatie begrijpelijk en uitwisseling eenvoudiger.</p>
+      <a class="hero-link" href="#ontologie">Ontdek de GBI-standaarden <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+<main class="wrap">
+<section class="section" id="nieuws">
+      <div class="section-heading">
+        <h2>Website</h2>
+        <p>GBI heeft een nieuwe website</p>
+      </div>
+      <div class="prose">
+        <p>Tijdelijke nieuwe website</p>
+      </div>
+      <aside class="note">
+        <p>Voorbeeld</p>
+      </aside>
+    </section>
+
+
+
+    <section class="section" id="ontologie">
+      <div class="section-heading">
+        <h2>Ontologie Inkomen</h2>
+        <p>De ontologie maakt informatie in het inkomensdomein eenduidig en bruikbaar over processen heen.</p>
+      </div>
+      <div class="prose">
+        <p>De GBI-ontologie Inkomen beschrijft de concepten, relaties en regels die een rol spelen binnen het inkomensdomein. Zo ontstaat een gemeenschappelijke taal om de informatiebehoefte van processen eenduidig te beschrijven. Gegevens kunnen hierdoor eenvoudiger tussen processen worden uitgewisseld. Ook helpt de ontologie om gegevensuitwisseling tussen verschillende services en ICT-componenten te beschrijven.</p>
+        <p>Waar mogelijk gebruikt de ontologie concepten uit bestaande standaarden, zoals het SGR, RGBZ en RSGB. Daardoor sluit de gegevensuitwisseling goed aan op componenten die op deze standaarden zijn gebaseerd. De ontologie en koppelvlakspecificaties volgen de principes van Common Ground.</p>
+      </div>
+      <aside class="note">
+        <p>In 2023 stelde het College van Dienstverleningszaken de ontologie vast als standaard met het regime <strong>‘pas toe of leg uit’</strong>.</p>
+      </aside>
+    </section>
+
+    <section class="section" id="koppelvlakken">
+      <div class="section-heading">
+        <h2>Koppelvlakspecificaties</h2>
+        <p>Op basis van de ontologie zijn afspraken uitgewerkt voor gegevensuitwisseling tussen ICT-componenten en services die inkomensprocessen ondersteunen.</p>
+      </div>
+      <div class="spec-grid">
+        <article class="spec">
+          <p class="spec-label">Koppelvlak 01</p>
+          <h3>Aanvraag Levensonderhoud <span>(ALO)</span></h3>
+          <p>De ene applicatie ondersteunt de intake en aanvraag. De andere applicatie ondersteunt de behandeling, besluitvorming en levering.</p>
+        </article>
+        <article class="spec">
+          <p class="spec-label">Koppelvlak 02</p>
+          <h3>Beslissing Levensonderhoud <span>(BL)</span></h3>
+          <p>De ene applicatie ondersteunt de intake, behandeling en besluitvorming. De andere applicatie ondersteunt de levering.</p>
+        </article>
+      </div>
+      <p class="closing">De koppelvlakspecificaties zijn in pilots getoetst. Samen met deelnemende gemeenten en leveranciers zijn ze succesvol gebruikt om systemen aan elkaar te koppelen.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p>GBI — Gemeentelijke Basisprocessen Inkomen</p>
+      <a href="README.md">Lees deze pagina als Markdown</a>
+    </div>
+  </footer>
+</body>
+</html>
